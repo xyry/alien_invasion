@@ -6,20 +6,25 @@
 # @Software: PyCharm
 import sys
 import pygame
-
+from settings import Settings
+from ship import Ship
+import game_functions as gf
 def run_game():
     pygame.init()
-    screen=pygame.display.set_mode((800,600))
+    ai_settings=Settings()
+    screen = pygame.display.set_mode(
+        (ai_settings.screen_width,ai_settings.screen_height)
+    )
     pygame.display.set_caption("Alien Invasion")
-    bg_color=(230,230,230)
+
+    # 创建一艘飞船
+    ship=Ship(ai_settings,screen)
     while True:
         #监听鼠标和键盘事件
-        for event in pygame.event.get():
-            if event.type==pygame.QUIT:
-                sys.exit()
-        #每次循环重新绘制屏幕
-        screen.fill(bg_color)
+        gf.check_events(ship)
+        ship.update()
+        gf.updata_screen(ai_settings,screen,ship)
 
-        # 让最近绘制的屏幕可见
-        pygame.display.flip()
 run_game()
+
+# pdf 220页
