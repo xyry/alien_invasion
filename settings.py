@@ -15,8 +15,15 @@ class Settings():
         self.bg_color=(230,230,230)
         #ship configuration
         self.ship_speed_factor=1.5
+        self.ship_limit=3
         # bullet configuration
-        self.bullet_speed_factor=1
-        self.bullet_width=3
-        self.bullet_height=15
-        self.bullet_color=60,60,60
+        self.bullet_speed_factor = 3
+        self.bullet_width = 300
+        self.bullet_height = 15
+        self.bullet_color = 60,60,60
+        self.bullet_allowed = 3
+        # alien configuration
+        self.alien_speed_factor = 0.5
+        self.fleet_drop_speed=100
+        # fleet_direction 为1 表示向右移动，为-1表示向左移动
+        self.fleet_direction = 1
